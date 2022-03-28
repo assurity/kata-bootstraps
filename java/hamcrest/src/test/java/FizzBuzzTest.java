@@ -11,20 +11,39 @@ public class FizzBuzzTest {
 
     @Test
     public void firstRecordIsOne(){
-        assertThat(fizzbuzz.next(), is(equalTo("1")));
+        assertThat(getFizzBuzz(1), is(equalTo("1")));
     }
 
     @Test
     public void secondRecordIsTwo(){
-        fizzbuzz.next();
-        assertThat(fizzbuzz.next(), is(equalTo("2")));
+        assertThat(getFizzBuzz(2), is(equalTo("2")));
     }
 
     @Test
     public void thirdRecordIsFizz(){
-        fizzbuzz.next();
-        fizzbuzz.next();
-        assertThat(fizzbuzz.next(), is(equalTo("Fizz")));
+        assertThat(getFizzBuzz(3), is(equalTo("Fizz")));
+    }
 
+    @Test
+    public void fourthRecordIsFour() {
+        assertThat(getFizzBuzz(4), is(equalTo("4")));
+    }
+
+    @Test
+    public  void fifthRecordIsBuzz() {
+        assertThat(getFizzBuzz(5), is(equalTo("Buzz")));
+    }
+
+    @Test
+    public void fifteenthRecordIsFizzBuzz(){
+        assertThat(getFizzBuzz(15), is(equalTo("FizzBuzz")));
+    }
+
+    private String getFizzBuzz(int nextCount) {
+        String message = "";
+        for (int i = 0; i< nextCount; i++) {
+            message = fizzbuzz.next();
+        }
+        return message;
     }
 }
